@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  cloudbox-app:
+    image: ${DOCKER_IMAGE}
+    container_name: cloudbox-${DEPLOY_ENV}
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    environment:
+      - DEPLOY_ENV=${DEPLOY_ENV}
