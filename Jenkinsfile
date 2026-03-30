@@ -26,8 +26,8 @@ pipeline {
     //   ECR_REPO_NAME   – name of your ECR repository
     // ─────────────────────────────────────────────
     environment {
-        AWS_ACCOUNT_ID  = '123456789012'          // <-- replace with your AWS Account ID
-        AWS_REGION      = 'us-east-1'             // <-- replace with your AWS region
+        AWS_ACCOUNT_ID  = '002645521749'          // <-- replace with your AWS Account ID
+        AWS_REGION      = 'eu-north-1'             // <-- replace with your AWS region
         ECR_REPO_NAME   = 'cloudbox-app'          // <-- replace with your ECR repo name
         ECR_REGISTRY    = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
         IMAGE_TAG       = "${params.DEPLOY_ENV}-${BUILD_NUMBER}"
