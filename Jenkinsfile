@@ -42,7 +42,7 @@ pipeline {
                 echo "Checking out branch: ${params.BRANCH_NAME}"
                 git branch: "${params.BRANCH_NAME}",
                     credentialsId: 'github-credentials',   // Jenkins credential ID for GitHub
-                    url: 'https://github.com/YOUR_USERNAME/cloudbox-project.git'  // <-- replace with your GitHub repo URL
+                    url: 'https://github.com/yogeshmeher36-cyber/cloudbox-project.git'  // <-- replace with your GitHub repo URL
             }
         }
 
