@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudBox - File Storage</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #181a1f; color: white; display: flex; }
+        .sidebar { width: 250px; background-color: #1f2228; padding: 20px; height: 100vh; }
+        .sidebar h2 { margin-bottom: 20px; }
+        .sidebar ul { list-style: none; padding: 0; }
+        .sidebar ul li { padding: 15px; cursor: pointer; }
+        .sidebar ul li:hover { background-color: #2a2d34; border-radius: 5px; }
+        .main-content { flex: 1; padding: 20px; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        button { background-color: #2d74da; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #1c4fa1; }
+        .file-list { background-color: #1f2228; padding: 20px; border-radius: 10px; }
+        .file-list h3 { margin-bottom: 15px; }
+        .file-list ul { list-style: none; padding: 0; }
+        .file-list ul li { padding: 10px; border-bottom: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>CloudBox</h2>
+        <ul>
+            <li>🏠 Home</li>
+            <li>📂 Folders</li>
+            <li>🖼 Photos</li>
+            <li>🔗 Shared</li>
+            <li>📊 Activity</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <input type="text" placeholder="Search files and folders..." style="padding: 10px; width: 50%; border-radius: 5px; border: none;">
+            <div>
+                <button>Invite</button>
+                <button>Upgrade</button>
+            </div>
+        </header>
+        <section class="actions">
+            <button>⬆ Upload</button>
+            <button>➕ Create</button>
+            <button>📂 New Folder</button>
+            <button>⬇ Download</button>
+        </section>
+        <section class="file-list">
+            <h3>All Files</h3>
+            <ul>
+                <li>📄 Project Documentation.pdf - 2.4 MB - 2 hours ago</li>
+                <li>🖼 Design Assets - 156 MB - Yesterday</li>
+                <li>📝 Meeting Notes.docx - 845 KB - 3 days ago</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
