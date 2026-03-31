@@ -73,30 +73,29 @@ pipeline {
 
         // ─── Stage 4: Deploy on EC2 using Docker Compose ───
         stage('Deploy on EC2') {
-            steps {
-                echo "Deploying to ${params.DEPLOY_ENV} environment"
-                sh """
-                    # Stop and remove any existing container for this environment
-                    docker compose down --remove-orphans || true
+    steps {
+        echo "Deploying to ${params.DEPLOY_ENV} environment"
+        sh """
+            # Stop and remove any existing container for this environment
+            docker-compose down --remove-orphans || true
 
-                    # Export variables needed by docker-compose.yml
-                    export DOCKER_IMAGE=${DOCKER_IMAGE}
-                    export DEPLOY_ENV=${params.DEPLOY_ENV}
+            # Export variables needed by docker-compose.yml
+            export DOCKER_IMAGE=${DOCKER_IMAGE}
+            export DEPLOY_ENV=${params.DEPLOY_ENV}
 
-                    # Pull the latest image from ECR
-                    aws ecr get-login-password --region ${AWS_REGION} | \
-                        docker login --username AWS --password-stdin ${ECR_REGISTRY}
-                    docker pull ${DOCKER_IMAGE}
+            # Pull the latest image from ECR
+            aws ecr get-login-password --region ${AWS_REGION} | \
+                docker login --username AWS --password-stdin ${ECR_REGISTRY}
+            docker pull ${DOCKER_IMAGE}
 
-                    # Start the container using Docker Compose
-                    docker compose up -d
+            # Start the container using Docker Compose
+            docker-compose up -d
 
-                    # Confirm the container is running
-                    docker ps | grep cloudbox
-                """
-            }
-        }
+            # Confirm the container is running
+            docker ps | grep cloudbox
+        """
     }
+}
 
     // ─────────────────────────────────────────────
     // POST-BUILD ACTIONS
